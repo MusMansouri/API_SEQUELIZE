@@ -19,6 +19,60 @@ class FormationController {
       // on renvoie l'erreur au format json
     }
   }
+  async addFormation(req, res) {
+    try {
+      const formation = await FormationService.addFormation(req.body);
+      res.status(201).json(formation);
+    } catch (error) {
+      console.log(error);
+      res.status(500);
+      res.json({ error: "Erreur lors de l'ajout de la formation" });
+    }
+  }
+  async getFormationById(req, res) {
+    try {
+      const formation = await FormationService.getFormationById(req.params.id);
+      if (!formation) {
+        return res.status(404).json({ error: "Formation non trouvé" });
+      }
+      res.status(201).json(formation);
+    } catch (error) {
+      console.log(error);
+      res.status(500);
+      res.json({ error: "Erreur lors de la recuperation de la formnation" });
+    }
+  }
+  async updateFormation(req, res) {
+    try {
+      const formation = await FormationService.updateFormation(
+        req.body,
+        req.params.id
+      );
+      if (!formation) {
+        return res.status(404).json({ error: "Formation non trouvé" });
+      }
+      res.status(201).json(formation);
+    } catch (error) {
+      console.log(error);
+      res.status(500);
+      res.json({ error: "Erreur lors de la modification de la formnation" });
+    }
+  }
+  async deleteFormationById(req, res) {
+    try {
+      const formation = await FormationService.deleteFormationById(
+        req.params.id
+      );
+      if (!formation) {
+        return res.status(404).json({ error: "Formation non trouvé" });
+      }
+      res.status(201).json("formation suprimer avec succes");
+    } catch (error) {
+      console.log(error);
+      res.status(500);
+      res.json({ error: "Erreur lors de la supression de la formnation" });
+    }
+  }
 }
 module.exports = new FormationController();
 // on exporte la classe stagiaireController
