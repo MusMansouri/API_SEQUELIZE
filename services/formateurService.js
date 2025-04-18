@@ -13,10 +13,7 @@ class FormateurService {
     return await Formateurs.findByPk(id);
   }
   async updateFormateur(formateur, id) {
-    return await Formateurs.update(
-      { ...formateur },
-      { where: { id_formateur: id } }
-    );
+    return await Formateurs.update(formateur, { where: { id_formateur: id } });
   }
   async deleteFormateurById(id) {
     return await Formateurs.destroy({ where: { id_formateur: id } });

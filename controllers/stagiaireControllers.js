@@ -19,7 +19,7 @@ class StagiaireController {
       // on renvoie l'erreur au format json
     }
   }
-  async addStagaire(req, res) {
+  async addStagiaire(req, res) {
     try {
       const stagiaire = await StagiaireService.addStagiaire(req.body);
       res.status(201).json(stagiaire);

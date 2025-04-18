@@ -13,10 +13,7 @@ class FormationsService {
     return await Formations.findByPk(id);
   }
   async updateFormation(formation, id) {
-    return await Formations.update(
-      { ...formation },
-      { where: { id_formation: id } }
-    );
+    return await Formations.update(formation, { where: { id_formation: id } });
   }
   async deleteFormationById(id) {
     return await Formations.destroy({ where: { id_formation: id } });

@@ -10,17 +10,17 @@ class StagiaireService {
   async getStagiaireById(id) {
     return await Stagiaires.findByPk(id);
   }
-  async addStagiaire() {
-    return await Stagiaires.create();
+  async addStagiaire(stagiaire) {
+    return await Stagiaires.create(stagiaire);
   }
-  async updateStagiaire(stagaire, id) {
+  async updateStagiaire(stagiaire, id) {
     return await Stagiaires.update(
-      { ...stagaire },
-      { where: { id_stagaire: id } }
+      { ...stagiaire },
+      { where: { id_stagiaires: id } }
     );
   }
   async deleteStagiaireById(id) {
-    return await Stagiaires.destroy({ where: { id_stagaire: id } });
+    return await Stagiaires.destroy({ where: { id_stagiaires: id } });
   }
 }
 module.exports = new StagiaireService();
