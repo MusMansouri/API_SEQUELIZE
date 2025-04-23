@@ -27,6 +27,12 @@ app.use("/examen", examenRoute);
 const examinateurRoute = require("./routes/examinateurRoute");
 app.use("/examinateur", examinateurRoute);
 
+const maitreRoute = require("./routes/maitreRoute");
+app.use("/maitre", maitreRoute);
+
+const chienRoute = require("./routes/chienRoute");
+app.use("/chien", chienRoute);
+
 app.use((req, res) => {
   res.status(404).json({ message: "Route non trouvé" });
 });
