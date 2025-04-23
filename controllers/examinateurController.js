@@ -1,5 +1,8 @@
 const ExaminateurService = require("../services/examinateurService");
+
 // on importe le service Examinateur
+/////////////
+
 class ExaminateurController {
   // on declare la classe ExaminateurController
   async getAllExaminateurs(req, res) {
@@ -40,7 +43,7 @@ class ExaminateurController {
     } catch (error) {
       console.log(error);
       res.status(500);
-      res.json({ error: "Erreur lors de la recuperation de la formnation" });
+      res.json({ error: "Erreur lors de la recuperation de l'Examinateur" });
     }
   }
   async updateExaminateur(req, res) {
@@ -56,7 +59,7 @@ class ExaminateurController {
     } catch (error) {
       console.log(error);
       res.status(500);
-      res.json({ error: "Erreur lors de la modification du Stagiare" });
+      res.json({ error: "Erreur lors de la modification de l'Examinateur" });
     }
   }
   async deleteExaminateurById(req, res) {

@@ -2,6 +2,7 @@ const express = require("express");
 // on importe express
 require("dotenv").config();
 // on importe le fichier .env
+require("./models/assiociation");
 const app = express();
 // on declare l'application express
 
@@ -12,6 +13,7 @@ app.get("/", (req, res) => {
 });
 
 // on declare la route racine
+
 const stagiaireRoute = require("./routes/stagiaireRoute");
 app.use("/stagiaires", stagiaireRoute);
 const formateurRoute = require("./routes/formateurRoute");

@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require(`sequelize`);
 const sequelize = require("../config/sequelize");
+const Examen = require("./examen");
 
 class Examinateur extends Model {}
 
@@ -23,6 +24,13 @@ Examinateur.init(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    id_examen: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: Examen,
+        key: "id_examen",
+      },
+    },
   },
   {
     sequelize, // on declare la config de sequelize
@@ -33,3 +41,6 @@ Examinateur.init(
 );
 
 module.exports = Examinateur;
+
+// Examinateur.hasOne(Examen, { as: "exam", foreignKey: "id_examen" });
+// Examen.belongsTo(Examinateur, { as: "examinateur", foreignKey: "id_examen" });
