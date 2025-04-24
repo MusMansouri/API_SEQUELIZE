@@ -33,6 +33,9 @@ app.use("/maitre", maitreRoute);
 const chienRoute = require("./routes/chienRoute");
 app.use("/chien", chienRoute);
 
+const puceRoute = require("./routes/puceRoute");
+app.use("/puce", puceRoute);
+
 app.use((req, res) => {
   res.status(404).json({ message: "Route non trouvé" });
 });

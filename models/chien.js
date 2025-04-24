@@ -8,7 +8,7 @@ class Chien extends Model {}
 Chien.init(
   // on initialise le model
   {
-    id_Chien: {
+    id_chien: {
       // on declare les champs de la table
       type: DataTypes.INTEGER, // on declare le type dedonnées
       primaryKey: true, // on declare la clé primaire
