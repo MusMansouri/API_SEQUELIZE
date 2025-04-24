@@ -5,7 +5,9 @@ const Chien = require("../models/chien");
 class ChienService {
   async getAllChien() {
     // on declare la fonction getAllChien;
-    return await Chien.findAll(); // on renvoie tous les Chien
+    return await Chien.findAll({
+      attributes: ["race", "age"],
+    }); // on renvoie tous les Chien
   }
   async getChienById(id) {
     return await Chien.findByPk(id);

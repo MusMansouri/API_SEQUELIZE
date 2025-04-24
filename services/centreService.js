@@ -1,11 +1,17 @@
 const {} = require("sequelize");
 // on importe sequelize
 const Centre = require("../models/centre");
+const Examen = require("../models/examen");
 // on importe le model Centre
 class CentreService {
   async getAllCentre() {
     // on declare la fonction getAllCentre;
-    return await Centre.findAll(); // on renvoie tous les Centre
+    return await Centre.findAll(
+      {
+      include: [{ model: Examen, as: "exam" }],
+    }
+  ); // on renvoie tous les Examinateur
+ // on renvoie tous les Centre
   }
   async getCentreById(id) {
     return await Centre.findByPk(id);
